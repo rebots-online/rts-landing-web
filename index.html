@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b0a11" />
+    <meta name="description" content="Point at a printed or digital score and inspect what the passage is doing. ReadThisSheet! combines verifiable music recognition, evidence-linked analysis, correction, playback, and paper-anchored overlays." />
+    <meta name="keywords" content="sheet music scanner, optical music recognition, OMR, music theory app, score analysis, piano learning, augmented reality sheet music, MusicXML, harmony analysis" />
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+    <meta name="author" content="RobinsAI.world" />
+    <link rel="canonical" href="https://readthissheet.robin.mba/" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="ReadThisSheet! — Point. Tap. Understand." />
+    <meta property="og:description" content="Turn the score already in front of you into an inspectable musical surface—without abandoning the page." />
+    <meta property="og:url" content="https://readthissheet.robin.mba/" />
+    <meta property="og:site_name" content="ReadThisSheet!" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ReadThisSheet! — Point. Tap. Understand." />
+    <meta name="twitter:description" content="Recognition you can verify. Analysis that shows its work. Explanations attached to the exact score location that raised the question." />
+    <title>ReadThisSheet! — AR Sheet Music Recognition & Evidence-Linked Analysis</title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "SoftwareApplication",
+            "@id": "https://readthissheet.robin.mba/#app",
+            "name": "ReadThisSheet!",
+            "applicationCategory": "EducationalApplication",
+            "applicationSubCategory": "Music education and score analysis",
+            "operatingSystem": "Android; desktop and web planned",
+            "description": "An augmented score reader that connects verifiable optical music recognition, correction, evidence-linked symbolic analysis, explanation, playback, and paper-anchored overlays.",
+            "isAccessibleForFree": true,
+            "offers": [
+              { "@type": "Offer", "name": "Explorer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/PreOrder" },
+              { "@type": "Offer", "name": "Soloist", "price": "9", "priceCurrency": "USD", "availability": "https://schema.org/PreOrder" }
+            ],
+            "featureList": [
+              "Camera, image, PDF, and MusicXML score import",
+              "Confidence-aware optical music recognition",
+              "Durable user corrections",
+              "Evidence-linked harmony, rhythm, cadence, voice, motif, and form analysis",
+              "Offline deterministic explanation",
+              "Static and live paper-anchored overlays",
+              "MusicXML and portable project export"
+            ],
+            "creator": { "@type": "Organization", "name": "RobinsAI.world" }
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is ReadThisSheet!?",
+                "acceptedAnswer": { "@type": "Answer", "text": "ReadThisSheet! is an augmented score reader and symbolic music-analysis tutor. It turns a photographed, scanned, PDF, or MusicXML score into an inspectable surface with verifiable recognition, corrections, analysis, explanation, playback, and overlays." }
+              },
+              {
+                "@type": "Question",
+                "name": "Does ReadThisSheet! work offline?",
+                "acceptedAnswer": { "@type": "Answer", "text": "The product is designed so captured projects, corrections, deterministic analysis, notes, playback, and static overlays work offline. Some recognition providers, sync, and optional language-model explanations may require a local workstation, LAN node, or internet connection." }
+              },
+              {
+                "@type": "Question",
+                "name": "Does it pretend music analysis has one correct answer?",
+                "acceptedAnswer": { "@type": "Answer", "text": "No. ReadThisSheet! is designed to preserve alternative readings, assumptions, uncertainty, and evidence. Users can inspect and pin an interpretation without erasing defensible alternatives." }
+              },
+              {
+                "@type": "Question",
+                "name": "Which music is supported first?",
+                "acceptedAnswer": { "@type": "Answer", "text": "The first repertoire contract focuses on clean printed solo-keyboard music in common Western notation, especially tonal Bach-to-Chopin repertoire. More complex and nonstandard notation follows measured release gates." }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="noise" aria-hidden="true"></div>
+    <header class="site-header" id="top">
+      <a class="brand" href="#top" aria-label="ReadThisSheet home">
+        <span class="brand-mark">𝄞</span>
+        <span>ReadThisSheet<span class="bang">!</span></span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#how">How it works</a>
+        <a href="#lenses">Lenses</a>
+        <a href="#offers">Offers</a>
+      </nav>
+      <button class="sound-toggle" id="soundToggle" type="button" aria-pressed="false">
+        <span class="sound-bars" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>Sound off</span>
+      </button>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy reveal">
+          <p class="eyebrow"><span></span> The score stays centre stage</p>
+          <h1 id="hero-title">Don’t leave the music<br /><em>to understand it.</em></h1>
+          <p class="hero-lede">Point at the page. Tap the passage. Reveal what it is doing—with recognition you can verify and analysis that shows its work.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#offers">Explore early access <span>↗</span></a>
+            <button class="button button-ghost" id="demoTrigger" type="button"><span class="play-icon">▶</span> Play the 18-second idea</button>
+          </div>
+          <div class="trust-row" aria-label="Product principles">
+            <span>Local-first</span><span>Evidence-linked</span><span>Uncertainty visible</span>
+          </div>
+        </div>
+
+        <div class="score-stage reveal" aria-label="Interactive illustration of score recognition and analysis">
+          <div class="stage-glow"></div>
+          <div class="phone-shell">
+            <div class="phone-top"><span></span><small>PAPER LENS · STABLE</small><b></b></div>
+            <div class="score-paper">
+              <div class="paper-heading"><span>J. S. BACH</span><strong>Prelude</strong><span>BWV 846</span></div>
+              <div class="staff staff-one">
+                <span class="clef">𝄞</span><span class="time">4<br />4</span>
+                <span class="notes">♩ ♪ ♫ ♩ ♪ ♫ ♩</span>
+                <span class="analysis-chip chip-key">C major <small>98%</small></span>
+              </div>
+              <div class="staff staff-two">
+                <span class="clef">𝄢</span><span class="notes bass">𝅗𝅥 &nbsp; 𝅗𝅥 &nbsp; ♩ ♩</span>
+                <span class="measure-focus"></span>
+                <button class="analysis-chip chip-harmony" type="button" data-inspect="harmony">I <small>tonic</small></button>
+              </div>
+              <div class="staff staff-three">
+                <span class="clef">𝄞</span><span class="notes">♫ ♫ ♫ ♫ ♩ 𝅗𝅥</span>
+                <span class="uncertain" title="Recognition uncertainty">♯?</span>
+              </div>
+              <div class="scan-line" aria-hidden="true"></div>
+            </div>
+            <div class="lens-rail"><button class="active">Harmony</button><button>Voices</button><button>Rhythm</button><button>Cadence</button></div>
+            <div class="inspector-card" id="inspectorCard">
+              <div><span class="roman">I</span><p><strong>Tonic harmony</strong><small>Measure 1 · beat 1</small></p><button aria-label="Close inspector">×</button></div>
+              <p>The notes C–E–G establish the local centre. Tap <b>Why?</b> to inspect the score events and alternatives.</p>
+              <div class="evidence"><span>C4</span><span>E4</span><span>G4</span><button>Why? →</button></div>
+            </div>
+          </div>
+          <div class="floating-proof proof-one"><span>01</span><p><b>Recognition</b><small>Provider + version recorded</small></p></div>
+          <div class="floating-proof proof-two"><span>02</span><p><b>Analysis</b><small>Events cited, not invented</small></p></div>
+        </div>
+      </section>
+
+      <section class="problem-strip" aria-label="Product distinction">
+        <p>Most scanners stop at notation.</p><span>→</span><p>Most tutors leave the page.</p><span>→</span><strong>This closes the loop.</strong>
+      </section>
+
+      <section class="section how" id="how">
+        <div class="section-heading reveal">
+          <p class="eyebrow"><span></span> One continuous thought</p>
+          <h2>From page to understanding.<br /><em>Without the tab avalanche.</em></h2>
+          <p>The photographed page remains the primary object. Every layer can be inspected, corrected, replaced, or turned off.</p>
+        </div>
+        <ol class="process-grid">
+          <li class="reveal"><span>01</span><div class="process-icon capture-icon">⌗</div><h3>Capture</h3><p>Photograph a page or import an image, PDF, MusicXML, or MXL. Blur, glare, and perspective are surfaced before they poison the pipeline.</p></li>
+          <li class="reveal"><span>02</span><div class="process-icon recognize-icon">⌁</div><h3>Recognize & verify</h3><p>See what the recognizer knows, suspects, or omitted. A confidence heatmap directs attention without pretending to certainty.</p></li>
+          <li class="reveal"><span>03</span><div class="process-icon understand-icon">◇</div><h3>Inspect & understand</h3><p>Tap a passage for notes, rhythm, harmony, voices, cadence, motif, form, playback, and a grounded “Why?”</p></li>
+        </ol>
+      </section>
+
+      <section class="section lenses" id="lenses">
+        <div class="lens-intro reveal">
+          <p class="eyebrow"><span></span> Composable lenses</p>
+          <h2>See the same page<br /><em>with better questions.</em></h2>
+          <p>ReadThisSheet! separates observation, interpretation, teaching language, and performance suggestion—because they are not the same kind of truth.</p>
+        </div>
+        <div class="lens-stack">
+          <article class="lens-card reveal"><span>𝅘𝅥𝅮</span><div><small>FOUNDATION</small><h3>Notes & rhythm</h3><p>Pitch spelling, beat position, metre, duration, tuplets, syncopation, and measure consistency.</p></div><b>01</b></article>
+          <article class="lens-card reveal"><span>Ⅳ</span><div><small>STRUCTURE</small><h3>Harmony & cadence</h3><p>Local-key context, ranked chord functions, non-chord tones, arrivals, alternatives, and the evidence behind each reading.</p></div><b>02</b></article>
+          <article class="lens-card reveal"><span>〰</span><div><small>TEXTURE</small><h3>Voices & motifs</h3><p>Trace melodic strands through keyboard texture and find exact, transposed, or rhythmic recurrence candidates.</p></div><b>03</b></article>
+          <article class="lens-card reveal"><span>▶</span><div><small>IN THE HANDS</small><h3>Listen & practise</h3><p>Loop a passage, mute or solo voices, slow the tempo, follow MIDI input, and preserve your place across sessions.</p></div><b>04</b></article>
+        </div>
+      </section>
+
+      <section class="evidence-section section">
+        <div class="evidence-copy reveal">
+          <p class="eyebrow"><span></span> No oracle costume</p>
+          <h2>“Why?” is a feature,<br /><em>not a leap of faith.</em></h2>
+          <p>Recognition, canonical notation, musical analysis, and explanatory prose keep separate provenance. A correction creates a durable revision. A changed note makes dependent analysis visibly stale.</p>
+          <ul><li><span>✓</span> Assertions point back to score events</li><li><span>✓</span> Alternative readings remain first-class</li><li><span>✓</span> Deterministic explanations work offline</li><li><span>✓</span> Optional LLM prose cannot rewrite the score</li></ul>
+        </div>
+        <div class="provenance-console reveal" aria-label="Example evidence trace">
+          <div class="console-head"><span></span><span></span><span></span><small>EVIDENCE TRACE · CURRENT</small></div>
+          <div class="trace-row"><b>01</b><p><small>SOURCE</small><strong>measure_009 · beat 3</strong></p><code>anchor: 0.482, 0.316</code></div>
+          <div class="trace-row"><b>02</b><p><small>EVENTS</small><strong>G3 · B3 · D4 · F4</strong></p><code>revision: 7fd2…a91c</code></div>
+          <div class="trace-row active"><b>03</b><p><small>CANDIDATE</small><strong>V⁷ / C major</strong></p><code>heuristic rank: 0.91</code></div>
+          <div class="trace-row"><b>04</b><p><small>ALTERNATIVE</small><strong>vii°⁶ / A minor</strong></p><code>rejected: bass evidence</code></div>
+          <div class="console-foot"><span>All evidence available offline</span><i></i></div>
+        </div>
+      </section>
+
+      <section class="section offers" id="offers">
+        <div class="section-heading centered reveal">
+          <p class="eyebrow"><span></span> Proposed launch offers</p>
+          <h2>Start with the page.<br /><em>Go as deep as you like.</em></h2>
+          <p>These are positioning hypotheses, not final promises. Live RevenueCat offerings replace fallback prices and control entitlements at launch.</p>
+        </div>
+        <div class="offer-grid" id="offerGrid">
+          <article class="offer-card reveal" data-tier="explorer">
+            <div><small>FREE</small><h3>Explorer</h3><p>See whether the interaction changes how you read.</p></div>
+            <p class="price"><b>$0</b><span>forever</span></p>
+            <ul><li>Interactive sample score</li><li>Capture-quality diagnostics</li><li>Notes and rhythm lens preview</li><li>One portable sample project</li></ul>
+            <a class="button button-ghost full" href="#demo">Try the idea</a>
+          </article>
+          <article class="offer-card featured reveal" data-tier="soloist">
+            <div class="popular">PROPOSED BEST FIT</div>
+            <div><small>INDIVIDUAL</small><h3>Soloist</h3><p>For the returning pianist who wants the theory back in reach.</p></div>
+            <p class="price" data-price-for="soloist"><b>$9</b><span>/ month · proposed</span></p>
+            <ul><li>Unlimited local projects</li><li>Correction + evidence workflow</li><li>Harmony, cadence, and voice lenses</li><li>Offline deterministic explanations</li><li>Playback, loops, notes, and export</li></ul>
+            <button class="button button-primary full purchase-button" type="button" data-purchase="soloist">Reserve early access <span>↗</span></button>
+          </article>
+          <article class="offer-card reveal" data-tier="studio">
+            <div><small>TEACHER / COACH</small><h3>Studio</h3><p>Prepare a reading, share a snapshot, review the student’s questions.</p></div>
+            <p class="price" data-price-for="studio"><b>$149</b><span>/ year · proposed</span></p>
+            <ul><li>Everything in Soloist</li><li>Teacher annotation layers</li><li>Immutable assignment snapshots</li><li>Student change proposals</li><li>Desktop study workspace when released</li></ul>
+            <button class="button button-ghost full purchase-button" type="button" data-purchase="studio">Join studio waitlist</button>
+          </article>
+        </div>
+        <p class="offer-note">No account is planned for local projects. If an entitlement expires, the local project remains readable. Purchases require configured RevenueCat Web Billing.</p>
+      </section>
+
+      <section class="section roadmap">
+        <div class="roadmap-heading reveal"><p class="eyebrow"><span></span> Honest trajectory</p><h2>Built in defensible<br /><em>musical steps.</em></h2></div>
+        <div class="roadmap-line reveal">
+          <article class="done"><span>R0</span><h3>Walking skeleton</h3><p>Fixture-backed end-to-end contracts and Android vertical slice.</p></article>
+          <article class="current"><span>R1</span><h3>Scan, verify, understand</h3><p>Capture, OMR adapter, corrections, core lenses, playback, export.</p></article>
+          <article><span>R2</span><h3>Paper Lens</h3><p>Known-page tracking, confidence-gated live overlays, freeze mode.</p></article>
+          <article><span>R3+</span><h3>Practise & teach</h3><p>MIDI following, study memory, desktop, teacher snapshots, sync.</p></article>
+        </div>
+      </section>
+
+      <section class="section faq" aria-labelledby="faq-title">
+        <div class="faq-heading reveal"><p class="eyebrow"><span></span> Before you ask the score</p><h2 id="faq-title">A few grounded answers.</h2></div>
+        <div class="faq-list">
+          <details class="reveal"><summary>Is this just a camera pointed at an AI chatbot?<span>+</span></summary><p>No. A traceable pipeline separates image geometry, OMR, canonical score events, corrections, analysis, and prose. The language layer receives bounded facts and cannot become canonical score truth.</p></details>
+          <details class="reveal"><summary>Does it require the cloud?<span>+</span></summary><p>Previously processed projects, corrections, deterministic analysis, notes, playback, and static overlays are designed to work locally. Recognition can run through an optional desktop sidecar, a LAN node, a remote provider, or a future on-device adapter.</p></details>
+          <details class="reveal"><summary>Will it read dense Chopin perfectly?<span>+</span></summary><p>No credible first release should promise that. Release claims begin with clean printed keyboard repertoire and are stratified by difficulty. Dense cross-staff Romantic notation is accepted but not promised at the first gate.</p></details>
+          <details class="reveal"><summary>Why not simply use MusicXML as the internal model?<span>+</span></summary><p>MusicXML is the interchange boundary. Selection, evidence, revision, timing, analysis, and stable page anchors need a canonical score graph with durable identity and explicit relations.</p></details>
+        </div>
+      </section>
+
+      <section class="final-cta" id="demo">
+        <div class="final-staff" aria-hidden="true"><span>𝄞</span><span>♪</span><span>♫</span><span>♩</span><span>𝅗𝅥</span></div>
+        <div class="reveal"><p class="eyebrow"><span></span> Bach-sized first steps. Chopin-sized horizon.</p><h2>The page is already asking.<br /><em>Now you can answer it.</em></h2><p>Join the early-access list or connect a live RevenueCat offering when the first release clears its evidence gates.</p><a class="button button-primary" href="mailto:hello@robinsai.world?subject=ReadThisSheet%20early%20access">Request early access <span>↗</span></a></div>
+      </section>
+    </main>
+
+    <footer><a class="brand" href="#top"><span class="brand-mark">𝄞</span><span>ReadThisSheet<span class="bang">!</span></span></a><p>Point. Tap. Understand what the passage is doing.</p><div><a href="#how">Product</a><a href="#offers">Offers</a><a href="mailto:hello@robinsai.world">Contact</a></div><small>© 2026 RobinsAI.world · In active development · Claims follow the repository PRD and release rubric.</small></footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <div class="purchase-modal" id="purchaseModal" role="dialog" aria-modal="true" aria-labelledby="purchaseTitle" hidden>
+      <button class="modal-close" type="button" aria-label="Close purchase dialog">×</button>
+      <div id="paywall-container"></div>
+      <div class="purchase-fallback"><small>READTH WITHOUT BLUSTER</small><h2 id="purchaseTitle">The checkout is ready for its keys.</h2><p>Set the RevenueCat public Web Billing key and offering IDs to activate live pricing, checkout, entitlement verification, and redemption.</p><code>cp .env.example .env.local</code><button class="button button-ghost entitlement-button" type="button">Check existing access</button></div>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

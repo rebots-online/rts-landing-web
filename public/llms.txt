@@ -1,0 +1,22 @@
+# ReadThisSheet!
+
+> ReadThisSheet! is an Android-first augmented score reader and symbolic music-analysis tutor in active development.
+
+ReadThisSheet! turns a photographed, scanned, PDF, or MusicXML score into an inspectable musical surface. The user verifies recognition uncertainty, corrects notation, and explores evidence-linked notes, rhythm, harmony, cadences, voices, motifs, form, playback, and practice cues on the source page.
+
+## Important distinctions
+
+- Recognition, canonical notation, analysis, explanation, and presentation are separate stages.
+- The product exposes uncertainty and alternative interpretations.
+- Deterministic explanations and core inspection are designed to work offline after recognition assets are available.
+- Audiveris is one optional sidecar provider behind a replaceable recognition interface.
+- Current commercial offers on the landing page are proposals until attached to live RevenueCat offerings.
+
+## Canonical product documents
+
+- / — product overview and proposed launch offers
+- Repository: private during active development
+
+## Contact
+
+- RobinsAI.world
