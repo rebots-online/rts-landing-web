@@ -60,6 +60,31 @@ licensed, royalty-free/no-copyright, and synthetic training sources. That does
 not make every generated output automatically risk-free or remove the need for
 an originality review.
 
+### Publish the dedicated Space
+
+On a workstation with the authenticated `hf` CLI:
+
+```bash
+chmod +x deploy-hf-space.sh
+./deploy-hf-space.sh
+```
+
+The idempotent script sources Admin-Manual when present, downloads the official
+ACE-Step 1.5 Space repository, creates or reuses the public
+`RobinsAIWorld/rts-music-lab` Gradio Space, uploads the Space source, requests
+`zero-a10g`, and prints the final `VITE_HF_SPACE_URL`. It copies container
+source—not model weights—so the weights remain managed by the Hub.
+
+ZeroGPU hosting requires Hugging Face PRO for a personal account or a qualifying
+organization plan. Override the target or hardware through Admin-Manual or the
+process environment:
+
+```bash
+HF_SPACE_ID=RobinsAIWorld/rts-music-lab \
+HF_SPACE_HARDWARE=zero-a10g \
+./deploy-hf-space.sh
+```
+
 ### Download security
 
 Client-side entitlement checks improve UX but are not a secure file-delivery boundary. Do **not** place a paid APK, bundle, course, or score pack at a guessable public URL. `VITE_ENTITLED_DOWNLOAD_URL` should point to an expiring signed URL or to a server endpoint that independently verifies the RevenueCat entitlement using a server-side secret. The static nginx path can still host the landing page; secure delivery should be a separate API or protected object store.
