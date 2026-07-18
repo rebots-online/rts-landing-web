@@ -11,6 +11,8 @@ ReadThisSheet! turns a photographed, scanned, PDF, or MusicXML score into an ins
 - Deterministic explanations and core inspection are designed to work offline after recognition assets are available.
 - Audiveris is one optional sidecar provider behind a replaceable recognition interface.
 - Current commercial offers on the landing page are proposals until attached to live RevenueCat offerings.
+- The optional AI music lab is a clearly labelled Hugging Face Space demonstration and is not part of canonical score analysis.
+- The page ships no prerecorded licensed soundtrack; its local cadence is synthesized with Web Audio, while optional generated output is disclosed as AI-generated.
 
 ## Canonical product documents
 

@@ -101,6 +101,56 @@ $("#demoTrigger")?.addEventListener("click", async () => {
   notify("Listen to the cadence, then inspect the evidence card on the score.");
 });
 
+const musicPrompt = $("#musicPrompt") as HTMLTextAreaElement;
+const musicSpace = $("#musicSpace") as HTMLIFrameElement;
+const musicSpaceLaunch = $("#musicSpaceLaunch") as HTMLButtonElement;
+const spacePlaceholder = $("#spacePlaceholder") as HTMLDivElement;
+const spaceStatus = $("#spaceStage .space-chrome small") as HTMLElement;
+
+$$<HTMLButtonElement>("[data-music-prompt]").forEach((button) => {
+  button.addEventListener("click", () => {
+    musicPrompt.value = button.dataset.musicPrompt || "";
+    musicPrompt.focus();
+  });
+});
+
+async function copyMusicPrompt() {
+  try {
+    await navigator.clipboard.writeText(musicPrompt.value.trim());
+    return true;
+  } catch {
+    musicPrompt.select();
+    return document.execCommand("copy");
+  }
+}
+
+musicSpaceLaunch.addEventListener("click", async () => {
+  if (!musicPrompt.value.trim()) {
+    notify("Give the model a short musical direction first.");
+    musicPrompt.focus();
+    return;
+  }
+
+  const copied = await copyMusicPrompt();
+  if (!musicSpace.src) {
+    const configuredSpace = import.meta.env.VITE_HF_SPACE_URL?.trim();
+    const source = configuredSpace || musicSpace.dataset.src || "";
+    musicSpace.src = source.includes("?") ? source : `${source}?__theme=dark`;
+    musicSpace.hidden = false;
+    spacePlaceholder.hidden = true;
+    spaceStatus.textContent = "RTS MUSIC LAB · SPACE LOADING";
+    musicSpace.addEventListener("load", () => {
+      spaceStatus.textContent = "RTS MUSIC LAB · SPACE CONNECTED";
+    }, { once: true });
+  }
+
+  musicSpace.scrollIntoView({ behavior: "smooth", block: "center" });
+  musicSpaceLaunch.innerHTML = "Composer open <span>↗</span>";
+  notify(copied
+    ? "Prompt copied. Paste it into the composer, then generate an original miniature."
+    : "Composer opened. Paste your direction into the Space to generate a miniature.");
+});
+
 const purchaseModal = $("#purchaseModal") as HTMLDivElement;
 const paywallContainer = $("#paywall-container") as HTMLDivElement;
 const fallback = $(".purchase-fallback") as HTMLDivElement;

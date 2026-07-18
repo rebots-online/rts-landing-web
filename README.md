@@ -6,6 +6,7 @@ A responsive, audibly interactive product/marketing site for ReadThisSheet!, kep
 
 - Source-grounded positioning derived from `DOCS/PRD.md` and `DOCS/ARCHITECTURE.md`.
 - Cinematic score/Paper Lens simulation with synthesized Web Audio cadence (no licensed recording asset).
+- Optional, lazy-loaded Hugging Face Space music lab using the MIT-licensed ACE-Step 1.5 model.
 - Proposed launch offers clearly labelled as hypotheses.
 - RevenueCat Web Billing integration via `@revenuecat/purchases-js`.
 - Anonymous RevenueCat identity support and post-purchase Redemption Link awareness.
@@ -40,6 +41,24 @@ npm run preview
 8. Start with RevenueCat Test Store, then provider sandbox, then production.
 
 The fallback prices in HTML are proposed positioning only. When RevenueCat is configured, matching package prices replace them at runtime.
+
+## Hugging Face music lab
+
+The AI music lab is optional and separate from canonical score recognition and
+analysis. It lazy-loads a public Gradio Space only after user interaction. The
+default `VITE_HF_SPACE_URL` points to the official ACE-Step 1.5 Space; replace it
+with `https://robinsaiworld-rts-music-lab.hf.space` after the dedicated Space is
+created.
+
+No Hugging Face token belongs in the browser bundle. Public ZeroGPU quotas and
+cold starts apply. Prompts should request original material without artist
+names, song titles, copyrighted lyrics, or imitation. Generated output remains
+labelled as AI-generated and should be reviewed before commercial publication.
+
+The ACE-Step 1.5 model card identifies the model license as MIT and describes
+licensed, royalty-free/no-copyright, and synthetic training sources. That does
+not make every generated output automatically risk-free or remove the need for
+an originality review.
 
 ### Download security
 
@@ -84,7 +103,8 @@ Enter any combination such as `1 2 3`. It builds once, then deploys the same `di
 
 The canonical values live only in the Admin-Manual `dot-env` above. Production
 builds require `VITE_REVENUECAT_API_KEY`, `VITE_REVENUECAT_ENTITLEMENT`, and
-`VITE_SITE_URL`.
+`VITE_SITE_URL`. `VITE_HF_SPACE_URL` selects the public Space origin and is not
+a credential.
 
 Vercel selections require `VERCEL_TOKEN`, `VERCEL_ORG_ID`, and
 `VERCEL_PROJECT_ID`. Netlify selections require `NETLIFY_AUTH_TOKEN` and
