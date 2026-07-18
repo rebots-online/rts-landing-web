@@ -6,22 +6,21 @@ cd "$ROOT_DIR"
 
 command_exists() { command -v "$1" >/dev/null 2>&1; }
 
-ADMIN_MANUAL_ROOT="${RTS_ADMIN_MANUAL_ROOT:-${HOME}/Admin-Manual}"
-ADMIN_ENV_FILE="${RTS_ADMIN_ENV_FILE:-${ADMIN_MANUAL_ROOT}/CREDENTIALS/RTS-LANDING-WEB/dot-env}"
+# Configuration is optional. Values may already be exported by the shell,
+# supplied by an Actions secret/variable, or loaded from a local ignored file.
+# RTS_DEPLOY_ENV_FILE overrides the default .env.deploy location.
+DEPLOY_ENV_FILE="${RTS_DEPLOY_ENV_FILE:-${ROOT_DIR}/.env.deploy}"
 
-load_admin_environment() {
-  if [[ ! -r "$ADMIN_ENV_FILE" ]]; then
-    printf 'Required Admin-Manual environment file is not readable: %s\n' "$ADMIN_ENV_FILE" >&2
-    printf 'Set RTS_ADMIN_ENV_FILE only when this workstation uses a non-standard Admin-Manual location.\n' >&2
-    return 1
+load_deploy_environment() {
+  if [[ -r "$DEPLOY_ENV_FILE" ]]; then
+    printf 'Loading deployment configuration from %s\n' "$DEPLOY_ENV_FILE"
+    set -a
+    # shellcheck disable=SC1090
+    source "$DEPLOY_ENV_FILE"
+    set +a
+  else
+    printf 'No deployment environment file found at %s; using exported variables and target defaults.\n' "$DEPLOY_ENV_FILE"
   fi
-
-  # Export the canonical private assignments to child processes without
-  # copying the Admin-Manual file into this public repository.
-  set -a
-  # shellcheck disable=SC1090
-  source "$ADMIN_ENV_FILE"
-  set +a
 }
 
 require_environment() {
@@ -29,7 +28,7 @@ require_environment() {
   local key
   for key in "$@"; do
     if [[ -z "${!key:-}" ]]; then
-      printf 'Missing required variable %s in %s\n' "$key" "$ADMIN_ENV_FILE" >&2
+      printf 'Missing required environment variable: %s\n' "$key" >&2
       missing=1
     fi
   done
@@ -71,12 +70,10 @@ if (( ${#TARGETS[@]} == 0 )); then
   exit 0
 fi
 
-load_admin_environment
+load_deploy_environment
 
-if $PRODUCTION; then
-  require_environment VITE_REVENUECAT_API_KEY VITE_REVENUECAT_ENTITLEMENT VITE_SITE_URL
-fi
-
+# Only cloud targets require their own credentials. Front-end VITE_* values are
+# optional because the application already supports non-billing/static builds.
 for target in "${TARGETS[@]}"; do
   case "$target" in
     Vercel) require_environment VERCEL_TOKEN VERCEL_ORG_ID VERCEL_PROJECT_ID ;;
